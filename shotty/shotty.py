@@ -13,7 +13,7 @@ def filter_instances(project):
     else:
         instances = ec2.instances.all()
 
-    return intances
+    return instances
 
 @click.group()
 def instances():
@@ -47,7 +47,7 @@ def stop_instances(project):
         print("Stopping {0}...".format(i.id))
         i.stop()
 
-        return
+    return
 
 @instances.command('start')
 @click.option('--project', default=None, help='Only instances for project')
@@ -58,9 +58,9 @@ def stop_instances(project):
 
     for i in instances:
         print("Starting {0}...".format(i.id))
-        i.stop()
+        i.start()
 
-        return
+    return
 
 if __name__ == '__main__':
     instances()
